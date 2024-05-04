@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: web
-        image: k8stest
-        imagePullPolicy: IfNotPresent
+        image: k8stest:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 8080
         livenessProbe:
