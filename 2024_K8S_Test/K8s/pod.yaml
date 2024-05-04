@@ -1,0 +1,17 @@
+﻿apiVersion: v1
+kind: Pod
+metadata:
+  name: k8s-test-pod
+  labels:
+    app: k8s-test-pod
+spec:
+  containers:
+    - name: web
+      image: k8stest
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 8080
+      livenessProbe:
+        httpGet:
+          path: /healthcheck
+          port: 8080

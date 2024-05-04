@@ -5,6 +5,15 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024_K8S_Test", "2024_K8S_Test\2024_K8S_Test.csproj", "{AB752AA6-7029-451D-9361-B78C4F499F44}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "方案項目", "方案項目", "{2EF9DE0F-E904-417E-B7A6-F14A727C9791}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		Dockerfile = Dockerfile
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
