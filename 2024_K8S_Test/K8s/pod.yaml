@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: web
-      image: k8stest
+      image: k8stest:latest
       imagePullPolicy: IfNotPresent
       ports:
         - containerPort: 8080
