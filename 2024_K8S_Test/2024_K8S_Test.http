@@ -1,0 +1,6 @@
+@_2024_K8S_Test_HostAddress = http://localhost:5075
+
+GET {{_2024_K8S_Test_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
