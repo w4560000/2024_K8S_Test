@@ -7,6 +7,7 @@ spec:
     app: k8s-test-pod
   ports:
   - protocol: TCP
+    port: 8000
     targetPort: 8080
     nodePort: 31000
   type: NodePort
