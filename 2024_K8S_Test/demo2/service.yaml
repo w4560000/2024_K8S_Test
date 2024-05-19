@@ -1,0 +1,12 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-test-service
+spec:
+  selector:
+    app: k8s-test-pod
+  ports:
+  - protocol: TCP
+    targetPort: 8080
+    nodePort: 31000
+  type: NodePort

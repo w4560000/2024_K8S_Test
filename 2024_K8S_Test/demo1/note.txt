@@ -1,0 +1,9 @@
+﻿kubectl apply -f deployment.yaml
+
+kubectl apply -f service.yaml
+
+kubectl get svc
+
+curl ${ClusterIP}:8000/test
+
+kubectl get pod -o wide
