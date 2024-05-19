@@ -1,6 +1,9 @@
 ﻿安裝 nginx controller
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.6/deploy/static/provider/cloud/deploy.yaml
 
+查看 svc ingress-nginx-controller 的 ClusterIP
+kubectl get svc -A
+
 建立 憑證
 https://w4560000.github.io/2022/04/11/certbot-tls-certificate/
 
@@ -11,3 +14,9 @@ certbot certonly --manual -m leozheng20240501@gmail.com -d *.leotest20240501.com
 
 
 // etc/hosts
+10.101.107.117 leok8s.dev.ingress.leotest20240501.com
+10.101.107.117 leok8s.prod.ingress.leotest20240501.com
+
+
+curl leok8s.dev.ingress.leotest20240501.com/test
+curl leok8s.prod.ingress.leotest20240501.com/test

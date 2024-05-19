@@ -31,21 +31,8 @@ docker push asia-east1-docker.pkg.dev/round-center-422013-u2/leo-k8s-demo/k8stes
 
 ## 方式2 透過服務帳號金鑰
 
-```powershell
-(Get-Content D:\Lab\leo-gar.json) | docker login  -u _json_key --password-stdin https://asia1-east1-docker.pkg.dev
+```cmd
+(Get-Content D:\Lab\leo-gar.json) | docker login  -u _json_key --password-stdin https://asia-east1-docker.pkg.dev
 
 docker push asia-east1-docker.pkg.dev/round-center-422013-u2/leo-k8s-demo/k8stest
 ```
-
-
-gcloud auth print-access-token
-取得token
-
-// 但只有60分鐘
-docker login -u oauth2accesstoken -p "ya29.a.." https://asia-east1-docker.pkg.dev
-
-透過service account
-
-docker login -u _json_key_base64 --password-stdin https://asia1-east1-docker.pkg.dev < D:\Lab\leo-gar.json
-
-// powershell
