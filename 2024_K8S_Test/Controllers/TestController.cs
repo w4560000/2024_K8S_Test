@@ -9,10 +9,14 @@ namespace _2024_K8S_Test.Controllers
     public class TestController : ControllerBase
     {
         private readonly ILogger<TestController> _logger;
+        private readonly IConfiguration _config;
 
-        public TestController(ILogger<TestController> logger)
+        public TestController(
+            ILogger<TestController> logger,
+            IConfiguration config)
         {
             _logger = logger;
+            _config = config;
         }
 
         [HttpGet]
@@ -22,7 +26,7 @@ namespace _2024_K8S_Test.Controllers
             {
                 HostName = Dns.GetHostName(),
                 HostIP = Dns.GetHostAddresses(Dns.GetHostName()).FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork).ToString(),
-                Version = 1
+                Version = _config.GetValue<string>("Env")
             };
         }
     }

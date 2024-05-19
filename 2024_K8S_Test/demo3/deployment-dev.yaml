@@ -1,22 +1,25 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-test-deployment
+  name: k8s-test-deployment-dev
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: k8s-test-pod
+      app: k8s-test-pod-dev
   template:
     metadata:
       labels:
-        app: k8s-test-pod
+        app: k8s-test-pod-dev
     spec:
       containers:
       - name: web
         image: asia-east1-docker.pkg.dev/round-center-422013-u2/leo-k8s-demo/k8stest:latest
         ports:
         - containerPort: 8080
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Development
         livenessProbe:
           httpGet:
             path: /healthcheck

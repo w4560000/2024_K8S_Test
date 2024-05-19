@@ -1,0 +1,13 @@
+﻿安裝 nginx controller
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.6/deploy/static/provider/cloud/deploy.yaml
+
+建立 憑證
+https://w4560000.github.io/2022/04/11/certbot-tls-certificate/
+
+certbot certonly --manual -m leozheng20240501@gmail.com -d *.leotest20240501.com
+
+// gcp cloud dns 目前無法建立 (可能是限額)，過幾天再試試
+
+
+
+// etc/hosts

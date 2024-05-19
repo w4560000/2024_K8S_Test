@@ -1,0 +1,27 @@
+﻿apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: leok8s-dev-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: leok8s.dev.ingress.leotest20240501.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: k8s-test-service-dev
+            port:
+              number: 8000
+        path: /
+        pathType: Prefix
+  - host: leok8s.prod.ingress.leotest20240501.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: k8s-test-service-prod
+            port:
+              number: 8001
+        path: /
+        pathType: Prefix

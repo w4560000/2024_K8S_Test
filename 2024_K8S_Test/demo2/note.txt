@@ -4,6 +4,29 @@ kubectl apply -f service.yaml
 
 kubectl get svc
 
-curl ${ClusterIP}:8000/test
+curl ${clusterIP}:8000/test
+
+curl 127.0.0.1:31000/test
+
+curl 34.80.86.254:31000/test 
 
 kubectl get pod -o wide
+
+
+
+
+// 查看 IPTABLE rule
+iptables -t nat -L PREROUTING | column -t
+
+iptables -t nat -L KUBE-SERVICES  -n  | column -t
+
+iptables -t nat -L KUBE-NODEPORTS  -n  | column -t
+
+iptables -t nat -L KUBE-EXT-Y76GZZJCRGI2HTQM  -n  | column -t
+
+iptables -t nat -L KUBE-SVC-Y76GZZJCRGI2HTQM -n  | column -t
+
+
+
+kubectl scale deployment --replicas=5 k8s-test-deployment
+
