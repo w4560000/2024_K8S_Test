@@ -13,13 +13,9 @@ spec:
         app: k8s-test-pod
     spec:
       volumes:
-      - name: secret-volume
-        secret:
-          secretName: secret-volume
       - name: configmap-volume
         configMap:
           name: configmap-volume
-          # defaultMode: 511
       containers:
       - name: web
         image: asia-east1-docker.pkg.dev/round-center-422013-u2/leo-k8s-demo/k8stest:latest
@@ -30,14 +26,8 @@ spec:
             path: /healthcheck
             port: 8080
         envFrom:
-        - secretRef:
-            name: secret-env
-        # envFrom:
-        # - configMapRef:
-        #     name: configmap-env
+        - configMapRef:
+            name: configmap-env
         volumeMounts:
           - mountPath: /app/config/
-            name: secret-volume
-        # volumeMounts:
-        #   - mountPath: /app/config/
-        #     name: configmap-volume
+            name: configmap-volume

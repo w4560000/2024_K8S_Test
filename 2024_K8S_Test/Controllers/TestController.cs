@@ -30,15 +30,23 @@ namespace _2024_K8S_Test.Controllers
             };
         }
 
-        [HttpGet(nameof(GetSetting))]
-        public object GetSetting()
+        [HttpGet(nameof(GetConfigmap))]
+        public object GetConfigmap()
+        {
+            return new
+            {
+                configmapEnv = Environment.GetEnvironmentVariable("configmap-env"),
+                configmapVolume = System.IO.File.ReadAllText("/app/config/setting.json")
+            };
+        }
+
+        [HttpGet(nameof(GetSecret))]
+        public object GetSecret()
         {
             return new
             {
                 secretEnv = Environment.GetEnvironmentVariable("secret-env"),
                 secretVolume = System.IO.File.ReadAllText("/app/config/config.yaml"),
-                configmapEnv = Environment.GetEnvironmentVariable("configmap-env"),
-                configmapVolume = System.IO.File.ReadAllText("/app/config/setting.json")
             };
         }
     }
