@@ -49,7 +49,7 @@ namespace _2024_K8S_Test.Controllers
             }
             catch(Exception ex)
             {
-                return "not found";
+                return $"not found, error: {ex}";
             }
         }
     }

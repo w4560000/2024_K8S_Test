@@ -8,13 +8,10 @@ kubectl apply -f service.yaml
 
 kubectl get svc
 
-
-
-
-
 curl ${ClusterIP}:8000/test
 
-kubectl get pod -o wide
+curl ${ClusterIP}:8000/test/getpwd
+curl ${ClusterIP}:8000/test/getsetting
 
 
 
