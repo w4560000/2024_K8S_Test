@@ -38,6 +38,6 @@ spec:
         volumeMounts:
           - mountPath: /app/config/
             name: secret-volume
-        volumeMounts:
-          - mountPath: /app/config/
-            name: configmap-volume
+        # volumeMounts:
+        #   - mountPath: /app/config/
+        #     name: configmap-volume
