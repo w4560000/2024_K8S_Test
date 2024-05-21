@@ -32,5 +32,4 @@ spec:
         volumeMounts:
           - mountPath: /app/setting.json
             name: setting-configmap
-            readOnly: true
             subPath: setting.json
