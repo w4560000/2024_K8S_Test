@@ -29,5 +29,28 @@ namespace _2024_K8S_Test.Controllers
                 Version = _config.GetValue<string>("Env")
             };
         }
+
+        [HttpGet(nameof(GetPwd))]
+        public string GetPwd()
+        {
+            return Environment.GetEnvironmentVariable("Pwd") ?? "not found";
+        }
+
+        [HttpGet(nameof(GetSetting))]
+        public string GetSetting()
+        {
+            try
+            {
+                FileStream fileStream = new FileStream("/etc/setting.json", FileMode.Open);
+                using (StreamReader reader = new StreamReader(fileStream))
+                {
+                    return reader.ReadLine();
+                }
+            }
+            catch(Exception ex)
+            {
+                return "not found";
+            }
+        }
     }
 }

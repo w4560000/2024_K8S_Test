@@ -1,0 +1,29 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-test-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-test-pod
+  template:
+    metadata:
+      labels:
+        app: k8s-test-pod
+    spec:
+      containers:
+      - name: web
+        image: asia-east1-docker.pkg.dev/round-center-422013-u2/leo-k8s-demo/k8stest:latest
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 8080
+        envFrom:
+        - secretRef:
+            name: pwd-secret
+        volumeMounts:
+        - name: setting-configmap
+          mountPath: "/etc"

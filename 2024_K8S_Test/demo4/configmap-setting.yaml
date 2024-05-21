@@ -1,0 +1,7 @@
+﻿apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: setting-configmap
+data:
+  setting.json: |
+    {setting1: "A"}
