@@ -30,5 +30,5 @@ spec:
         - secretRef:
             name: pwd-secret
         volumeMounts:
-          - mountPath: /app/
+          - mountPath: /app/config/
             name: setting-configmap

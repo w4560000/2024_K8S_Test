@@ -41,7 +41,7 @@ namespace _2024_K8S_Test.Controllers
         {
             try
             {
-                return System.IO.File.ReadAllText("/app/setting.json");
+                return System.IO.File.ReadAllText("/app/config/setting.json");
             }
             catch (Exception ex)
             {
