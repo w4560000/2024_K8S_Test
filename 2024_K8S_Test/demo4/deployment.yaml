@@ -32,9 +32,9 @@ spec:
         envFrom:
         - secretRef:
             name: secret-env
-        envFrom:
-        - configMapRef:
-            name: configmap-env
+        # envFrom:
+        # - configMapRef:
+        #     name: configmap-env
         volumeMounts:
           - mountPath: /app/config/
             name: secret-volume
