@@ -28,6 +28,6 @@ spec:
         envFrom:
         - secretRef:
             name: pwd-secret
-        # volumeMounts:
-        # - name: setting-configmap
-        #   mountPath: "/etc"
+        volumeMounts:
+        - name: setting-configmap
+          mountPath: "/data"

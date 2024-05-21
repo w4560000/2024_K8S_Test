@@ -41,7 +41,7 @@ namespace _2024_K8S_Test.Controllers
         {
             try
             {
-                FileStream fileStream = new FileStream("/etc/setting.json", FileMode.Open);
+                FileStream fileStream = new FileStream("/data/setting.json", FileMode.Open);
                 using (StreamReader reader = new StreamReader(fileStream))
                 {
                     return reader.ReadLine();
