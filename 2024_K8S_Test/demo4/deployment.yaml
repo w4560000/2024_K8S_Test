@@ -29,5 +29,7 @@ spec:
         - secretRef:
             name: pwd-secret
         volumeMounts:
-        - name: setting-configmap
-          mountPath: "/data"
+          - mountPath: /app/setting.json
+            name: setting-configmap
+            readOnly: true
+            subPath: setting.json
