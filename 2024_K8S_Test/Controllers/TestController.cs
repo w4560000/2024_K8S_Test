@@ -36,7 +36,7 @@ namespace _2024_K8S_Test.Controllers
             return new
             {
                 secretEnv = Environment.GetEnvironmentVariable("secret-env"),
-                secretVolume = Environment.GetEnvironmentVariable("secret-volume"),
+                secretVolume = System.IO.File.ReadAllText("/app/config/config.yaml"),
                 configmapEnv = Environment.GetEnvironmentVariable("configmap-env"),
                 configmapVolume = System.IO.File.ReadAllText("/app/config/setting.json")
             };
