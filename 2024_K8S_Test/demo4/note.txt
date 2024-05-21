@@ -9,10 +9,19 @@ kubectl apply -f service.yaml
 kubectl get svc
 
 curl ${ClusterIP}:8000/test
+curl ${ClusterIP}:8000/test/GetConfigmap
+curl ${ClusterIP}:8000/test/GetSecret
 
-curl ${ClusterIP}:8000/test/getpwd
-curl ${ClusterIP}:8000/test/getsetting
 
+configmap
+- env 不會更新 (重啟POD 更新)
+- volume 約過10秒更新
+
+secret
+- env 不會更新 (重啟POD 更新)
+- volume 約過10秒更新
+
+kubectl rollout restart deployment k8s-test-deployment
 
 
 echo secret-env | base64
