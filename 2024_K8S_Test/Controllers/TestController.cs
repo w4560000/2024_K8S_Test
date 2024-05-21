@@ -30,23 +30,16 @@ namespace _2024_K8S_Test.Controllers
             };
         }
 
-        [HttpGet(nameof(GetPwd))]
-        public string GetPwd()
-        {
-            return Environment.GetEnvironmentVariable("Pwd") ?? "not found";
-        }
-
         [HttpGet(nameof(GetSetting))]
-        public string GetSetting()
+        public object GetSetting()
         {
-            try
+            return new
             {
-                return System.IO.File.ReadAllText("/app/config/setting.json");
-            }
-            catch (Exception ex)
-            {
-                return $"not found, error: {ex}";
-            }
+                secretEnv = Environment.GetEnvironmentVariable("secret-env"),
+                secretVolume = Environment.GetEnvironmentVariable("secret-volume"),
+                configmapEnv = Environment.GetEnvironmentVariable("configmap-env"),
+                configmapVolume = System.IO.File.ReadAllText("/app/config/setting.json")
+            };
         }
     }
 }

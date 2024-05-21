@@ -1,7 +1,7 @@
 ﻿apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: setting-configmap
+  name: configmap-volume
 data:
   setting.json: |
-    {setting1: "A"}
+    {configmap-volume: "configmap-volume"}

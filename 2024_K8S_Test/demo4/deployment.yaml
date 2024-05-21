@@ -13,10 +13,13 @@ spec:
         app: k8s-test-pod
     spec:
       volumes:
-      - name: setting-configmap
+      - name: secret-volume
         configMap:
-          name: setting-configmap
-          defaultMode: 511
+          name: secret-volume
+      - name: configmap-volume
+        configMap:
+          name: configmap-volume
+          # defaultMode: 511
       containers:
       - name: web
         image: asia-east1-docker.pkg.dev/round-center-422013-u2/leo-k8s-demo/k8stest:latest
@@ -28,7 +31,13 @@ spec:
             port: 8080
         envFrom:
         - secretRef:
-            name: pwd-secret
+            name: secret-env
+        envFrom:
+        - configMapRef:
+            name: configmap-env
         volumeMounts:
           - mountPath: /app/config/
-            name: setting-configmap
+            name: secret-volume
+        volumeMounts:
+          - mountPath: /app/config/
+            name: configmap-volume
