@@ -12,6 +12,10 @@ spec:
       labels:
         app: k8s-test-pod
     spec:
+      volumes:
+      - name: setting-configmap
+        configMap:
+          name: setting-configmap
       containers:
       - name: web
         image: asia-east1-docker.pkg.dev/round-center-422013-u2/leo-k8s-demo/k8stest:latest

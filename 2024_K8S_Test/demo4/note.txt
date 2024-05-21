@@ -1,4 +1,8 @@
-﻿kubectl apply -f deployment.yaml
+﻿kubectl apply -f secret-pwd.yaml
+kubectl apply -f configmap-setting.yaml
+
+
+kubectl apply -f deployment.yaml
 
 kubectl apply -f service.yaml
 
