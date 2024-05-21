@@ -41,13 +41,9 @@ namespace _2024_K8S_Test.Controllers
         {
             try
             {
-                FileStream fileStream = new FileStream("/app/setting.json", FileMode.Open);
-                using (StreamReader reader = new StreamReader(fileStream))
-                {
-                    return reader.ReadLine();
-                }
+                return System.IO.File.ReadAllText("/app/setting.json");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return $"not found, error: {ex}";
             }
