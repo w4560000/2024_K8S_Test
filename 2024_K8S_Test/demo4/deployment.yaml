@@ -16,6 +16,7 @@ spec:
       - name: setting-configmap
         configMap:
           name: setting-configmap
+          defaultMode: 511
       containers:
       - name: web
         image: asia-east1-docker.pkg.dev/round-center-422013-u2/leo-k8s-demo/k8stest:latest
