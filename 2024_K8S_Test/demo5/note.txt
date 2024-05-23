@@ -13,7 +13,7 @@ kubectl apply -f hpa.yaml
 
 kubectl get svc
 
-curl ${ClusterIP}:8000/test
+curl ${ClusterIP}:8000/Test/testcpu
 
 kubectl get pod -o wide
 
