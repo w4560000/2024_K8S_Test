@@ -52,7 +52,7 @@ namespace _2024_K8S_Test.Controllers
         }
 
         [HttpGet(nameof(TestCPU))]
-        public void TestCPU()
+        public string TestCPU()
         {
             void Test()
             {
@@ -66,7 +66,7 @@ namespace _2024_K8S_Test.Controllers
             for(int i = 0; i < 10; i++)
                 tasks.Add(Task.Run(() => Test()));
 
-            Task.WaitAll(tasks.ToArray());
+            return "OK";
         }
     }
 }
