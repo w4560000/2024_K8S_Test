@@ -22,7 +22,8 @@ spec:
             path: /healthcheck
             port: 8080
         resources:
-        limits:
-            cpu: 500m
-        requests:
+          requests:
             cpu: 200m
+          limits:
+            cpu: 500m
+        
