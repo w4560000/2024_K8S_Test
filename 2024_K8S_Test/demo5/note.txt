@@ -1,0 +1,28 @@
+﻿kubectl apply -f metrics.yaml
+
+kubectl get pods -n kube-system | grep metrics-server
+
+
+
+
+kubectl apply -f deployment.yaml
+
+kubectl apply -f service.yaml
+
+kubectl apply -f hpa.yaml
+
+kubectl get svc
+
+curl ${ClusterIP}:8000/test
+
+kubectl get pod -o wide
+
+while true; do curl ${ClusterIP}:8000/test; done
+
+
+
+
+
+
+kubectl top nodes
+kubectl top pods
