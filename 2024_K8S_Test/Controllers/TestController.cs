@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Sockets;
 using System.Net;
+using System;
 
 namespace _2024_K8S_Test.Controllers
 {
@@ -48,6 +49,24 @@ namespace _2024_K8S_Test.Controllers
                 secretEnv = Environment.GetEnvironmentVariable("secret-env"),
                 secretVolume = System.IO.File.ReadAllText("/app/config/config.yaml"),
             };
+        }
+
+        [HttpGet(nameof(TestCPU))]
+        public void TestCPU()
+        {
+            void Test()
+            {
+                while (true)
+                {
+                }
+            }
+
+            List<Task> tasks = new List<Task>();
+
+            for(int i = 0; i < 10; i++)
+                tasks.Add(Task.Run(() => Test()));
+
+            Task.WaitAll(tasks.ToArray());
         }
     }
 }
