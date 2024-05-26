@@ -7,3 +7,9 @@ kubectl get svc
 curl ${ClusterIP}:8000/test
 
 kubectl get pod -o wide
+
+
+kubectl get events -w 
+
+
+demo: RollingUpdate (latest => demo1)、node故障

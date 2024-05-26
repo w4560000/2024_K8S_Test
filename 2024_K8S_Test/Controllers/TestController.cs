@@ -27,7 +27,8 @@ namespace _2024_K8S_Test.Controllers
             {
                 HostName = Dns.GetHostName(),
                 HostIP = Dns.GetHostAddresses(Dns.GetHostName()).FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork).ToString(),
-                Version = _config.GetValue<string>("Env")
+                Version = _config.GetValue<string>("Env"),
+                Test = "demo1"
             };
         }
 
