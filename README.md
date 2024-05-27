@@ -36,3 +36,21 @@ docker push asia-east1-docker.pkg.dev/round-center-422013-u2/leo-k8s-demo/k8stes
 
 docker push asia-east1-docker.pkg.dev/round-center-422013-u2/leo-k8s-demo/k8stest
 ```
+
+
+
+SSH 設定
+
+VM
+
+ed -i '51d' /etc/ssh/sshd_config
+echo PasswordAuthentication yes >> /etc/ssh/sshd_config
+service ssh restart
+
+
+建立 SSH 私鑰
+ssh-keygen -f C:\Users\Administrator\.ssh\controller -C leozheng20240501
+
+新增 controller.pub 到 VM 中繼資料 ssh key
+
+ssh -i C:\Users\Administrator\.ssh\controller leozheng20240501@34.81.245.26
