@@ -67,7 +67,7 @@ namespace _2024_K8S_Test.Controllers
             for(int i = 0; i < 10; i++)
                 tasks.Add(Task.Run(() => Test()));
 
-            return "OK";
+            return Dns.GetHostName();
         }
     }
 }
