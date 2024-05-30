@@ -21,9 +21,3 @@ spec:
           httpGet:
             path: /healthcheck
             port: 8080
-        resources:
-          requests:
-            cpu: 100m
-          limits:
-            cpu: 300m
-        

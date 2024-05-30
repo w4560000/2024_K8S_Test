@@ -21,7 +21,7 @@ while true; do curl ${ClusterIP}:8000/test; done
 
 
 
-
+kubectl scale --replicas=5 deployment k8s-test-deployment
 
 
 kubectl top nodes
